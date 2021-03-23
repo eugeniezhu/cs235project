@@ -19,8 +19,9 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+  <!--<link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- JavaScript
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -35,14 +36,26 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-      </div>
-    </div>
-  </div>
+  <!DOCTYPE html>
+
+
+  <script src="javascript/myscript.js"></script>
+  <p class="title">CS 235 Project, Spring 2021</p>
+  <p class="subtitle">by Su Kim, Nhien Rust-Nguyen, & Eugenie Zhu</p>
+  <p class="content">DIRECTIONS FOR USERS HERE: ...</p>
+  <form  class="content" method="post" action="/Tests/Post">
+      <fieldset>
+          <legend>Which of the following are you using?</legend>
+          <input type="radio" value="touchscreen">touchscreen<br>
+          <input type="radio" value="mouse">mouse<br>
+          <input type="radio" value="trackpad">trackpad<br>
+          <input type="radio" value="other">other<br>
+          <br>
+      </fieldset>
+  </form>  
+  <button id="start" onclick="startExp()" class="startbtn">Start</button>      
+  
+
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

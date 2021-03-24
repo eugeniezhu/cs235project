@@ -1,13 +1,14 @@
 var start = 0;
 var end = 0;
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-  function showList() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  function showControl() {
+    document.getElementById("mycontrol").classList.toggle("show");
   }
   window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-list");
+    if (!event.target.matches('.controlbtn')) {
+      var dropdowns = document.getElementsByClassName("control-list");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
@@ -83,6 +84,9 @@ toggle between hiding and showing the dropdown content */
   } 
 
   function startExp(){
+    var userName = document.getElementById('userName').value;
+    sessionStorage.setItem("userN", userName)
+
     //save user's device choice
     var d = document.getElementsByName('device');    
     for(i = 0; i < d.length; i++) {
@@ -143,6 +147,7 @@ toggle between hiding and showing the dropdown content */
     sessionStorage.setItem("saturationTime", saturationTime);
     
     // for DEBUG -- how to get variables
+    console.log("user's name: " + sessionStorage.getItem("userN"));
     console.log("user's device: " + sessionStorage.getItem("userD"));
     console.log("user's controlTime: " + sessionStorage.getItem("controlTime") + " ms");
     console.log("user's hueTime: " + sessionStorage.getItem("hueTime") + " ms");

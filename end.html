@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS 235 Project</title>
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    </head>
+    <body class="content">
+        <h3 id="name">Name Placeholder</h3>
+        <h4 id="device" style="color:gray">Device Placeholder</h4>
+        <br><br>
+        <table class="table">
+            <tr>
+                <th>Menu</th>
+                <th>Time (ms)</th>
+            </tr>
+            <tr>
+                <td>Control</td>
+                <td id="control"></td>
+            </tr>
+            <tr>
+                <td>Hue</td>
+                <td id="hue"></td>
+            </tr>
+            <tr>
+                <td>Shade</td>
+                <td id="shade"></td>
+            </tr>
+            <tr>
+                <td>Saturation</td>
+                <td id="saturation"></td>
+            </tr>
+        </table>
+
+        <script type='text/javascript'>
+            document.getElementById('name').innerHTML = sessionStorage.getItem("userN");
+            document.getElementById('device').innerHTML = sessionStorage.getItem("userD");
+            document.getElementById('control').innerHTML = sessionStorage.getItem("controlTime");
+            document.getElementById('hue').innerHTML = sessionStorage.getItem("hueTime");
+            document.getElementById('shade').innerHTML = sessionStorage.getItem("shadeTime");
+            document.getElementById('saturation').innerHTML = sessionStorage.getItem("saturationTime");
+        </script>    
+    </body>
+</html>

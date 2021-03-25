@@ -3,7 +3,7 @@ function showMenu(menuName) {
   document.getElementById(menuName).classList.toggle("show");
 }
 
-function startExp(){
+function startExp() {
   var userName = document.getElementById('userName').value;
   sessionStorage.setItem("userN", userName)
 
@@ -24,20 +24,6 @@ function showNextPage(currentMenu, nextMenu) {
   endTimer(currentMenu);
   window.location.href = nextMenu;
   startTimer();
-}
-
-function endExp(currentMenu){    
-  endTimer(currentMenu)
-  
-  // for DEBUG -- how to get variables
-  console.log("user's name: " + sessionStorage.getItem("userN"));
-  console.log("user's device: " + sessionStorage.getItem("userD"));
-  console.log("user's controlTime: " + sessionStorage.getItem("controlTime") + " ms");
-  console.log("user's hueTime: " + sessionStorage.getItem("hueTime") + " ms");
-  console.log("user's shadeTime: " + sessionStorage.getItem("shadeTime") + " ms");
-  console.log("user's saturationTime: " + sessionStorage.getItem("saturationTime") + " ms");
-  
-  alert("You've completed the experiment. Thank you so much for your time.");
 }
 
 function startTimer() {

@@ -42,11 +42,15 @@
   <script src="javascript/myscript.js"></script>
   <p class="title">CS 235 Project, Spring 2021</p>
   <p class="subtitle">by Su Kim, Nhien Rust-Nguyen, & Eugenie Zhu</p>
-  <p class="content">DIRECTIONS FOR USERS HERE: ...</p>
+  <p class="content">
+    Your task is to find a specific target in a menu. After you click on the correct target, a new menu will automatically appear. 
+    <br>
+    After you complete all tasks, the site will notify you that the experiment is complete and you may exit the page.
+  </p>
   <form>
     <input placeholder="Enter your first and last name" id="userName" class="textbox" type="text" autocomplete="off">
   </form>
-  <form  class="content" method="post" action="/Tests/Post">
+  <form  class="content" id="device" method="post" action="/Tests/Post">
       <fieldset>
           <legend>Which of the following are you using?</legend>
           <input type="radio" name="device" value="touchscreen">touchscreen<br>

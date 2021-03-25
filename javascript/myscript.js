@@ -1,5 +1,5 @@
 // generic toggle menu
-function showMenu(menuName) {
+function toggleMenu(menuName) {
   document.getElementById(menuName).classList.toggle("show");
 }
 
@@ -21,7 +21,9 @@ function startExp() {
 }
 
 function showNextPage(currentMenu, nextMenu) {
-  endTimer(currentMenu);
+  if (currentMenu != null) {
+    endTimer(currentMenu);
+  }
   window.location.href = nextMenu;
   startTimer();
 }

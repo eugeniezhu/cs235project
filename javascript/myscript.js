@@ -1,106 +1,6 @@
-var start = 0;
-var end = 0;
-
-let menus = new Map();
-menus.set('.controlbtn', 'control-list');
-menus.set('.huebtn', 'hue-list');
-menus.set('.saturationbtn', 'saturation-list');
-menus.set('.shadebtn', 'shade-list');
-
 // generic toggle menu
 function showMenu(menuName) {
   document.getElementById(menuName).classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.controlbtn')) {
-    var dropdowns = document.getElementsByClassName("control-list");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-} 
-
-window.onclick = function(event) {
-  if (!event.target.matches('.huebtn')) {
-    var dropdowns = document.getElementsByClassName("hue-list");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-} 
-
-window.onclick = function(event) {
-  if (!event.target.matches('.shadebtn')) {
-    var dropdowns = document.getElementsByClassName("shade-list");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-} 
-
-window.onclick = function(event) {
-  if (!event.target.matches('.saturationbtn')) {
-    var dropdowns = document.getElementsByClassName("saturation-list");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-} 
-
-function hue(){
-  //end timer for control test & calculate # of ms
-  endTime = new Date().getTime();
-  var controlTime = endTime - sessionStorage.getItem("startTime");
-  sessionStorage.setItem("controlTime", controlTime);     
-
-  window.location.href = "hue.html";
-
-  //start timer for hue test
-  startTime = new Date().getTime();
-  sessionStorage.setItem("startTime", startTime); 
-}
-
-function shade(){
-  //end timer for hue test & calculate # of ms
-  endTime = new Date().getTime();
-  var hueTime = endTime - sessionStorage.getItem("startTime");
-  sessionStorage.setItem("hueTime", hueTime); 
-
-  window.location.href = "shade.html";
-
-  //start timer for shade test
-  startTime = new Date().getTime();
-  sessionStorage.setItem("startTime", startTime);
-}
-
-function saturation(){
-  //end timer for shade test & calculate # of ms
-  endTime = new Date().getTime();
-  var shadeTime = endTime - sessionStorage.getItem("startTime");
-  sessionStorage.setItem("shadeTime", shadeTime);
-
-  window.location.href = "saturation.html"; 
-
-  //start timer for saturation test
-  startTime = new Date().getTime();
-  sessionStorage.setItem("startTime", startTime);
 }
 
 function startExp(){
@@ -116,16 +16,18 @@ function startExp(){
     }     
   }
   //start timer for control test
-  startTime = new Date().getTime();
-  sessionStorage.setItem("startTime", startTime);     
+  startTimer();   
   window.location.href = "control.html";    
 }
 
-function endExp(){    
-  //end timer for saturation test & calculate # of ms
-  endTime = new Date().getTime();
-  var saturationTime = endTime - sessionStorage.getItem("startTime");
-  sessionStorage.setItem("saturationTime", saturationTime);
+function showNextPage(currentMenu, nextMenu) {
+  endTimer(currentMenu);
+  window.location.href = nextMenu;
+  startTimer();
+}
+
+function endExp(currentMenu){    
+  endTimer(currentMenu)
   
   // for DEBUG -- how to get variables
   console.log("user's name: " + sessionStorage.getItem("userN"));
@@ -136,4 +38,15 @@ function endExp(){
   console.log("user's saturationTime: " + sessionStorage.getItem("saturationTime") + " ms");
   
   alert("You've completed the experiment. Thank you so much for your time.");
+}
+
+function startTimer() {
+ startTime = new Date().getTime();
+ sessionStorage.setItem("startTime", startTime); 
+}
+
+// end timer for current test & calculate # of ms
+function endTimer(currentMenu) {
+  endTime = new Date().getTime();
+  sessionStorage.setItem(currentMenu, endTime - sessionStorage.getItem("startTime"));     
 }

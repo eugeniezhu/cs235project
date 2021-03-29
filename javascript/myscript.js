@@ -1,59 +1,40 @@
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function showList() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-list");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  } 
+// generic toggle menu
+function toggleMenu(menuName) {
+  document.getElementById(menuName).classList.toggle("show");
+}
 
-  function showHue() {
-    document.getElementById("myhue").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.huebtn')) {
-      var dropdowns = document.getElementsByClassName("hue-list");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  } 
+function startExp() {
+  var userName = document.getElementById('userName').value;
+  sessionStorage.setItem("userN", userName)
 
-  function startExp(){
-    //TODO: START TIMER HERE
-    window.location.href = "control.html";
-    
+  //save user's device choice
+  var d = document.getElementsByName('device');    
+  for(i = 0; i < d.length; i++) {
+    if(d[i].checked){
+      var userDevice = d[i].value;
+      sessionStorage.setItem("userD", userDevice);
+    }     
   }
+  //start timer for control test
+  startTimer();   
+  window.location.href = "control.html";    
+}
 
-  function hue(){
-    window.location.href = "hue.html";
+function showNextPage(currentMenu, nextMenu) {
+  if (currentMenu != null) {
+    endTimer(currentMenu);
   }
+  window.location.href = nextMenu;
+  startTimer();
+}
 
-  function shade(){
-      //TODO
-  }
+function startTimer() {
+ startTime = new Date().getTime();
+ sessionStorage.setItem("startTime", startTime); 
+}
 
-  function saturation(){
-      //TODO
-  }
-  
-  function endExp(){    
-    //TODO END TIMER HERE
-  }
+// end timer for current test & calculate # of ms
+function endTimer(currentMenu) {
+  endTime = new Date().getTime();
+  sessionStorage.setItem(currentMenu, endTime - sessionStorage.getItem("startTime"));     
+}

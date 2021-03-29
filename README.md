@@ -12,6 +12,14 @@ Our web application can run on the following browsers:
 
 This is a non-exhaustive list and our application should work this older versions of these browsers as well. 
 
+These operating systems support our web application:
+
+- Microsoft Windows
+- macOS
+- Linux
+- iOS
+- Android
+
 ## Instructions
 This application is hosted on GitHub pages. Participants of the study should view it in a browser using this [link](http://google.com).
 

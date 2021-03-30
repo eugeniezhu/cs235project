@@ -1,6 +1,13 @@
+var toggleTimer = false;
+
 // generic toggle menu
 function toggleMenu(menuName) {
   document.getElementById(menuName).classList.toggle("show");
+  if(toggleTimer == false) {
+    //start timer for control test
+     toggleTimer = true;
+     startTimer(); 
+  }
 }
 
 function startExp() {
@@ -15,8 +22,6 @@ function startExp() {
       sessionStorage.setItem("userD", userDevice);
     }     
   }
-  //start timer for control test
-  startTimer();   
   window.location.href = "control.html";    
 }
 
@@ -25,7 +30,6 @@ function showNextPage(currentMenu, nextMenu) {
     endTimer(currentMenu);
   }
   window.location.href = nextMenu;
-  startTimer();
 }
 
 function startTimer() {
@@ -35,6 +39,7 @@ function startTimer() {
 
 // end timer for current test & calculate # of ms
 function endTimer(currentMenu) {
+  toggleMenu = false;
   endTime = new Date().getTime();
   sessionStorage.setItem(currentMenu, endTime - sessionStorage.getItem("startTime"));     
 }

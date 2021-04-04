@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>CS 235 Project</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -10,7 +10,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-        <script src="javascript/myscript.js"></script>
+        <script src="../javascript/myscript.js"></script>
 
     </head>
     <body class="content">
@@ -31,24 +31,39 @@
                 <td id="hue"></td>
             </tr>
             <tr>
+                <td>Hue_v2</td>
+                <td id="hue2"></td>
+            </tr>
+            <tr>
                 <td>Shade</td>
                 <td id="shade"></td>
+            </tr>
+            <tr>
+                <td>Shade_v2</td>
+                <td id="shade2"></td>
             </tr>
             <tr>
                 <td>Saturation</td>
                 <td id="saturation"></td>
             </tr>
+            <tr>
+                <td>Saturation_v2</td>
+                <td id="saturation2"></td>
+            </tr>
         </table>
 
-        <button id="restart" onclick="showNextPage(null, `index.html`)">Return to Home</button>
+        <button id="restart" onclick="showNextPage(null, `../index.html`)">Return to Home</button>
 
         <script type='text/javascript'>
             document.getElementById('name').innerHTML = sessionStorage.getItem("userN");
             document.getElementById('device').innerHTML = sessionStorage.getItem("userD");
             document.getElementById('control').innerHTML = sessionStorage.getItem("controlTime");
             document.getElementById('hue').innerHTML = sessionStorage.getItem("hueTime");
+            document.getElementById('hue2').innerHTML = sessionStorage.getItem("hue2Time");
             document.getElementById('shade').innerHTML = sessionStorage.getItem("shadeTime");
+            document.getElementById('shade2').innerHTML = sessionStorage.getItem("shade2Time");
             document.getElementById('saturation').innerHTML = sessionStorage.getItem("saturationTime");
+            document.getElementById('saturation2').innerHTML = sessionStorage.getItem("saturation2Time");
         </script>    
     </body>
 </html>

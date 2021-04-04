@@ -22,7 +22,7 @@ function startExp() {
       sessionStorage.setItem("userD", userDevice);
     }     
   }
-  window.location.href = "control.html";    
+  window.location.href = "pages/control.html";    
 }
 
 function showNextPage(currentMenu, nextMenu) {
